@@ -1,4 +1,4 @@
 export enum TradeType {
-    BUY = 'buy',
-    SALE = 'sale'
+  BUY = 'buy',
+  SALE = 'sale',
 }

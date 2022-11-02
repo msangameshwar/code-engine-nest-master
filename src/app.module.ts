@@ -7,19 +7,22 @@ import { Trade } from './trades/entities/trade.entity';
 import { TradesModule } from './trades/trades.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
+  imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-    type: 'mysql',
-    host: process.env.DB_HOST,
-    port: parseInt(process.env.DB_PORT),
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    entities: [Trade],
-    synchronize: true,
-    dropSchema: false,
-  }), TradesModule],
+      type: 'mysql',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      entities: [Trade],
+      synchronize: true,
+      dropSchema: false,
+    }),
+    TradesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
